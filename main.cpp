@@ -30,26 +30,20 @@ uint16_t my_ntohs(uint16_t a){
 	return (a1 | a2);
 }
 
-uint32_t my_ntol(uint16_t a){
-	/*
-	 * uint16_t b1 = (b & 0xffff0000) >> 24;
-	 * printf("b1 = 0x%x\n", b1);
-	 *
-	 * uint16_t b2 = (b & 0x0000ffff) >> 24;
-	 * printf("b2 = 0x%x\n", b2);
-	 * 
-	 * b = b1 | b2;
-	 * printf("b=0x%x\n\n", b);
-	 * return 0;
-	 */
-
+uint32_t my_ntol(uint32_t a){ // uint16_t (X) uint32_t (O)
 	uint32_t a1 = (a & 0xFF000000) >> 24;
+	printf("a1 = 0x%x\n", a1);
+
 	uint32_t a2 = (a & 0x00FF0000) >> 8;
+	printf("a2 = 0x%x\n", a2);
+
 	uint32_t a3 = (a & 0x0000FF00) << 8;
+	printf("a3 = 0x%x\n", a3);
+
 	uint32_t a4 = (a & 0x000000FF) << 24;
+	printf("a4 = 0x%x\n", a4);
 
-	printf("0x%x\n 0x%x\n 0x%x 0x%x\n", a1, a2, a3, a4);
-
+	// printf("0x%x\n 0x%x\n 0x%x\n 0x%x\n", a1, a2, a3, a4);
 
 	return (a1 | a2 | a3 | a4);
 }
